@@ -186,6 +186,9 @@ public class StudentManagementSystem {
         }
     }
 
+
+    // --------------------------- containsStudentID method ---------------------------
+
     private static boolean containsStudentId(String studentId) {
         for (int i = 0; i < studentCount; i++) {
             if (studentIds[i] != null && studentIds[i].equals(studentId)) {
@@ -286,6 +289,9 @@ public class StudentManagementSystem {
             }
         }
     }
+
+
+    // --------------------------- hasAssignedMarks method ---------------------------
 
     private static boolean hasAssignedMarks(int studentIndex) {
         for (int mark : studentMarks[studentIndex]) {
@@ -633,6 +639,9 @@ public class StudentManagementSystem {
         }
     }
 
+
+    // --------------------------- calculateTotalMarks method ---------------------------
+
     private static int calculateTotalMarks(int studentIndex) {
         int totalMarks = 0;
         for (int i = 0; i < MAX_SUBJECTS; i++) {
@@ -641,10 +650,16 @@ public class StudentManagementSystem {
         return totalMarks;
     }
 
+
+    // --------------------------- calculateAverageMarks method ---------------------------
+
     private static double calculateAverageMarks(int studentIndex) {
         int totalMarks = calculateTotalMarks(studentIndex);
         return (double) totalMarks / MAX_SUBJECTS;
     }
+
+
+    // --------------------------- calculateRank method ---------------------------
 
     private static int calculateRank(int studentIndex) {
         int studentTotalMarks = calculateTotalMarks(studentIndex);
@@ -848,6 +863,9 @@ public class StudentManagementSystem {
             }
         }
     }
+
+
+    // --------------------------- clearConsole method ---------------------------
 
     public final static void clearConsole() {
         try {
