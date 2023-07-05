@@ -119,7 +119,6 @@ public class StudentManagementSystem {
         }
     }
 
-
     // --------------------------- (2) Add New Student with Marks ---------------------------
 
     private static void addNewStudentWithMarks(Scanner scanner) {
@@ -150,7 +149,7 @@ public class StudentManagementSystem {
             while (true) {
                 System.out.print("Enter " + subjects[i] + " Marks: ");
                 int mark = scanner.nextInt();
-                scanner.nextLine(); 
+                scanner.nextLine();
 
                 if (mark < 0 || mark > 100) {
                     System.out.println("Invalid " + subjects[i] + " marks. Marks should be within the range of 0-100.");
@@ -174,18 +173,17 @@ public class StudentManagementSystem {
 
             if (choice.equalsIgnoreCase("Y")) {
                 clearConsole();
-                addNewStudentWithMarks(scanner); 
-                return; 
+                addNewStudentWithMarks(scanner);
+                return;
             } else if (choice.equalsIgnoreCase("N")) {
                 System.out.println("Returning to the main menu.");
                 clearConsole();
-                return; 
+                return;
             } else {
                 System.out.println("Invalid choice. Please enter Y or N.");
             }
         }
     }
-
 
     // --------------------------- containsStudentID method ---------------------------
 
@@ -197,7 +195,6 @@ public class StudentManagementSystem {
         }
         return false;
     }
-
 
     // --------------------------- (3) Add Marks ---------------------------
 
@@ -254,7 +251,7 @@ public class StudentManagementSystem {
                     while (true) {
                         System.out.print("Enter " + subjects[i] + " Marks: ");
                         int mark = scanner.nextInt();
-                        scanner.nextLine(); 
+                        scanner.nextLine();
 
                         if (mark < 0 || mark > 100) {
                             System.out.println(
@@ -276,12 +273,12 @@ public class StudentManagementSystem {
 
                     if (choice.equalsIgnoreCase("Y")) {
                         clearConsole();
-                        addMarks(scanner); 
-                        return; 
+                        addMarks(scanner);
+                        return;
                     } else if (choice.equalsIgnoreCase("N")) {
                         System.out.println("Returning to the main menu.");
                         clearConsole();
-                        return; 
+                        return;
                     } else {
                         System.out.println("Invalid choice. Please enter Y or N.");
                     }
@@ -289,7 +286,6 @@ public class StudentManagementSystem {
             }
         }
     }
-
 
     // --------------------------- hasAssignedMarks method ---------------------------
 
@@ -302,8 +298,8 @@ public class StudentManagementSystem {
         return false;
     }
 
-
-    // --------------------------- (4) Update Student Details ---------------------------
+    // --------------------------- (4) Update Student Details
+    // ---------------------------
 
     private static void updateStudentDetails(Scanner scanner) {
         System.out.println("------------------------------------------------------------------------------");
@@ -354,12 +350,12 @@ public class StudentManagementSystem {
 
                     if (choice.equalsIgnoreCase("Y")) {
                         clearConsole();
-                        updateStudentDetails(scanner); 
-                        return; 
+                        updateStudentDetails(scanner);
+                        return;
                     } else if (choice.equalsIgnoreCase("N")) {
                         System.out.println("Returning to the main menu.");
                         clearConsole();
-                        return; 
+                        return;
                     } else {
                         System.out.println("Invalid choice. Please enter Y or N.");
                     }
@@ -367,7 +363,6 @@ public class StudentManagementSystem {
             }
         }
     }
-
 
     // --------------------------- (5) Update Marks ---------------------------
 
@@ -426,7 +421,7 @@ public class StudentManagementSystem {
                     while (true) {
                         System.out.print("Enter New " + subjects[i] + " Marks: ");
                         int mark = scanner.nextInt();
-                        scanner.nextLine(); 
+                        scanner.nextLine();
 
                         if (mark < 0 || mark > 100) {
                             System.out.println(
@@ -448,12 +443,12 @@ public class StudentManagementSystem {
 
                     if (choice.equalsIgnoreCase("Y")) {
                         clearConsole();
-                        updateMarks(scanner); 
-                        return; 
+                        updateMarks(scanner);
+                        return;
                     } else if (choice.equalsIgnoreCase("N")) {
                         System.out.println("Returning to the main menu.");
                         clearConsole();
-                        return; 
+                        return;
                     } else {
                         System.out.println("Invalid choice. Please enter Y or N.");
                     }
@@ -461,7 +456,6 @@ public class StudentManagementSystem {
             }
         }
     }
-
 
     // --------------------------- (6) Delete Student ---------------------------
 
@@ -532,7 +526,7 @@ public class StudentManagementSystem {
                     } else if (choice.equalsIgnoreCase("N")) {
                         System.out.println("Returning to the main menu.");
                         clearConsole();
-                        return; 
+                        return;
                     } else {
                         System.out.println("Invalid choice. Please enter Y or N.");
                     }
@@ -540,7 +534,6 @@ public class StudentManagementSystem {
             }
         }
     }
-
 
     // --------------------------- (7) Print Student Details ---------------------------
 
@@ -639,7 +632,6 @@ public class StudentManagementSystem {
         }
     }
 
-
     // --------------------------- calculateTotalMarks method ---------------------------
 
     private static int calculateTotalMarks(int studentIndex) {
@@ -650,14 +642,12 @@ public class StudentManagementSystem {
         return totalMarks;
     }
 
-
     // --------------------------- calculateAverageMarks method ---------------------------
 
     private static double calculateAverageMarks(int studentIndex) {
         int totalMarks = calculateTotalMarks(studentIndex);
         return (double) totalMarks / MAX_SUBJECTS;
     }
-
 
     // --------------------------- calculateRank method ---------------------------
 
@@ -676,7 +666,6 @@ public class StudentManagementSystem {
         return rank;
     }
 
-
     // --------------------------- (8) Print Student Ranks ---------------------------
 
     private static void printStudentRanks(Scanner scanner) {
@@ -694,8 +683,11 @@ public class StudentManagementSystem {
         boolean[] visited = new boolean[studentCount]; // track visited students (array)
         int remainingStudents = studentCount; // Count of remaining unvisited students
 
-        System.out.println("Rank\tStudent ID\tStudent Name\tTotal Marks\tAverage Marks");
-        System.out.println();
+        System.out.println("------------------------------------------------------------------------------");
+        System.out.printf("| %-5s | %-11s | %-20s | %-12s | %-14s |%n", "Rank", "Student ID", "Student Name",
+                "Total Marks", "Average Marks");
+
+        System.out.println("------------------------------------------------------------------------------");
 
         while (remainingStudents > 0) {
             int minRank = Integer.MAX_VALUE;
@@ -712,13 +704,15 @@ public class StudentManagementSystem {
             // Print the details of the student with the lowest rank
             int totalMarks = calculateTotalMarks(minRankIndex);
             double averageMarks = calculateAverageMarks(minRankIndex);
-            System.out.println(minRank + "\t" + studentIds[minRankIndex] + "\t\t" + studentNames[minRankIndex] + "\t\t" +
-                            totalMarks + "\t\t" + averageMarks);
+
+            System.out.printf("| %-5s | %-11s | %-20s | %-12s | %-14s |%n", minRank, studentIds[minRankIndex],
+                    studentNames[minRankIndex], totalMarks, averageMarks);
 
             // Mark the student as visited
             visited[minRankIndex] = true;
             remainingStudents--;
         }
+        System.out.println("------------------------------------------------------------------------------");
 
         System.out.println();
 
@@ -740,7 +734,6 @@ public class StudentManagementSystem {
         }
     }
 
-
     // --------------------------- (9) Best in PRF Module ---------------------------
 
     private static void bestInPRF(Scanner scanner) {
@@ -758,8 +751,9 @@ public class StudentManagementSystem {
         boolean[] visited = new boolean[studentCount]; // track visited students (array)
         int remainingStudents = studentCount; // Count of remaining unvisited students
 
-        System.out.println("ID\tName\t\tPRF Marks\tDBMS Marks");
-        System.out.println();
+        System.out.println("--------------------------------------------------------------");
+        System.out.printf("| %-5s | %-20s | %-12s | %-12s |%n", "ID", "Name", "PRF Marks", "DBMS Marks");
+        System.out.println("--------------------------------------------------------------");
 
         while (remainingStudents > 0) {
             int maxPRF = -1;
@@ -774,13 +768,15 @@ public class StudentManagementSystem {
             }
 
             // Print the details of the student with the highest PRF marks
-            System.out.println(studentIds[maxPRFIndex] + "\t" + studentNames[maxPRFIndex] + "\t\t" +
-                    studentMarks[maxPRFIndex][0] + "\t\t" + studentMarks[maxPRFIndex][1]);
+            System.out.printf("| %-5s | %-20s | %-12s | %-12s |%n", studentIds[maxPRFIndex], studentNames[maxPRFIndex],
+                    studentMarks[maxPRFIndex][0], studentMarks[maxPRFIndex][1]);
+
 
             // Mark the student as visited
             visited[maxPRFIndex] = true;
             remainingStudents--;
         }
+        System.out.println("--------------------------------------------------------------");
 
         System.out.println();
 
@@ -802,7 +798,6 @@ public class StudentManagementSystem {
         }
     }
 
-
     // --------------------------- (10) Best in DBMS Module ---------------------------
 
     private static void bestInDBMS(Scanner scanner) {
@@ -820,8 +815,9 @@ public class StudentManagementSystem {
         boolean[] visited = new boolean[studentCount]; // track visited students (array)
         int remainingStudents = studentCount; // Count of remaining unvisited students
 
-        System.out.println("ID\tName\t\tPRF Marks\tDBMS Marks");
-        System.out.println();
+        System.out.println("--------------------------------------------------------------");
+        System.out.printf("| %-5s | %-20s | %-12s | %-12s |%n", "ID", "Name", "PRF Marks", "DBMS Marks");
+        System.out.println("--------------------------------------------------------------");
 
         while (remainingStudents > 0) {
             int maxDBMS = -1;
@@ -836,13 +832,14 @@ public class StudentManagementSystem {
             }
 
             // Print the details of the student with the highest DBMS marks
-            System.out.println(studentIds[maxDBMSIndex] + "\t" + studentNames[maxDBMSIndex] + "\t\t" +
-                    studentMarks[maxDBMSIndex][0] + "\t\t" + studentMarks[maxDBMSIndex][1]);
+            System.out.printf("| %-5s | %-20s | %-12s | %-12s |%n", studentIds[maxDBMSIndex], studentNames[maxDBMSIndex],
+                    studentMarks[maxDBMSIndex][0], studentMarks[maxDBMSIndex][1]);
 
             // Mark the student as visited
             visited[maxDBMSIndex] = true;
             remainingStudents--;
         }
+        System.out.println("--------------------------------------------------------------");
 
         System.out.println();
 
@@ -863,7 +860,6 @@ public class StudentManagementSystem {
             }
         }
     }
-
 
     // --------------------------- clearConsole method ---------------------------
 
