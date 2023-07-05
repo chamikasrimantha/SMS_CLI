@@ -298,8 +298,7 @@ public class StudentManagementSystem {
         return false;
     }
 
-    // --------------------------- (4) Update Student Details
-    // ---------------------------
+    // --------------------------- (4) Update Student Details ---------------------------
 
     private static void updateStudentDetails(Scanner scanner) {
         System.out.println("------------------------------------------------------------------------------");
